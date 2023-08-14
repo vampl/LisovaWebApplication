@@ -15,4 +15,8 @@
       <Folder Include="Controllers\" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Lisova.Services.Context\Lisova.Services.Context.csproj" />
+    </ItemGroup>
+
 </Project>
