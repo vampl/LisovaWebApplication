@@ -49,5 +49,16 @@ public class LisovaContext : DbContext
         modelBuilder.Entity<EmployeePosition>()
             .Property(ep => ep.To)
             .HasColumnType("date");
+        
+        modelBuilder.Entity<EmployeeDepartment>()
+            .HasKey(ed => new { ed.EmployeeNo, ed.DepartmentCode });
+
+        modelBuilder.Entity<EmployeeDepartment>()
+            .Property(ed => ed.From)
+            .HasColumnType("date");
+
+        modelBuilder.Entity<EmployeeDepartment>()
+            .Property(ed => ed.To)
+            .HasColumnType("date");
     }
 }
