@@ -24,5 +24,8 @@ public class LisovaContext : DbContext
         modelBuilder.Entity<Position>()
             .Property(p => p.Salary)
             .HasPrecision(10, 2);
+        
+        modelBuilder.Entity<Department>()
+            .HasKey(d => d.DepartmentCode);
     }
 }
