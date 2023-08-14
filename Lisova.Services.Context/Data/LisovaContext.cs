@@ -27,5 +27,16 @@ public class LisovaContext : DbContext
         
         modelBuilder.Entity<Department>()
             .HasKey(d => d.DepartmentCode);
+        
+        modelBuilder.Entity<Employee>()
+            .HasKey(e => e.EmployeeNo); // Set EmployeeNo as the unique key
+
+        modelBuilder.Entity<Employee>()
+            .Property(e => e.EmployeeNo)
+            .HasDefaultValueSql("NEXT VALUE FOR EmployeeNoSequence"); // Use a sequence for EmployeeNo
+
+        modelBuilder.Entity<Employee>()
+            .Property(e => e.BirthDate)
+            .HasColumnType("date");
     }
 }
