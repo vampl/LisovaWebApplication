@@ -11,11 +11,21 @@ public class LisovaContext : DbContext
 
     public LisovaContext(DbContextOptions<LisovaContext> contextOptions) : base(contextOptions) { }
 
+    public DbSet<Employee> Employees { get; set; } = default!;
+    
+    public DbSet<EmployeePosition> EmployeePositions { get; set; } = default!;
+    
+    public DbSet<EmployeeDepartment> EmployeeDepartments { get; set; } = default!;
+    
+    public DbSet<Position> Positions { get; set; } = default!;
+    
+    public DbSet<Department> Departments { get; set; } = default!;
+    
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.UseSqlite(ConnectionString);
     }
-
+    
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Position>()
