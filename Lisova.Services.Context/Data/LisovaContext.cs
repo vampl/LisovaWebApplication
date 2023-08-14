@@ -52,12 +52,14 @@ public class LisovaContext : DbContext
         modelBuilder.Entity<Employee>()
             .HasMany(e => e.EmployeePositions)
             .WithOne(ep => ep.Employee)
-            .HasForeignKey(ep => ep.EmployeeNo);
-        
+            .HasForeignKey(ep => ep.EmployeeNo)
+            .OnDelete(DeleteBehavior.Cascade);
+
         modelBuilder.Entity<Employee>()
             .HasMany(e => e.EmployeeDepartments)
             .WithOne(ed => ed.Employee)
-            .HasForeignKey(ed => ed.EmployeeNo);
+            .HasForeignKey(ed => ed.EmployeeNo)
+            .OnDelete(DeleteBehavior.Cascade);
         
         modelBuilder.Entity<EmployeePosition>()
             .HasKey(ep => new { ep.EmployeeNo, ep.PositionCode });
