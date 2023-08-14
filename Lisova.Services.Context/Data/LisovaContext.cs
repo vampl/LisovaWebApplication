@@ -49,6 +49,16 @@ public class LisovaContext : DbContext
             .Property(e => e.BirthDate)
             .HasColumnType("date");
         
+        modelBuilder.Entity<Employee>()
+            .HasMany(e => e.EmployeePositions)
+            .WithOne(ep => ep.Employee)
+            .HasForeignKey(ep => ep.EmployeeNo);
+        
+        modelBuilder.Entity<Employee>()
+            .HasMany(e => e.EmployeeDepartments)
+            .WithOne(ed => ed.Employee)
+            .HasForeignKey(ed => ed.EmployeeNo);
+        
         modelBuilder.Entity<EmployeePosition>()
             .HasKey(ep => new { ep.EmployeeNo, ep.PositionCode });
 
@@ -60,6 +70,16 @@ public class LisovaContext : DbContext
             .Property(ep => ep.To)
             .HasColumnType("date");
         
+        modelBuilder.Entity<EmployeePosition>()
+            .HasOne(ep => ep.Employee)
+            .WithMany(e => e.EmployeePositions)
+            .HasForeignKey(ep => ep.EmployeeNo);
+        
+        modelBuilder.Entity<EmployeePosition>()
+            .HasOne(ep => ep.Position)
+            .WithMany(p => p.EmployeePositions)
+            .HasForeignKey(ep => ep.PositionCode);
+        
         modelBuilder.Entity<EmployeeDepartment>()
             .HasKey(ed => new { ed.EmployeeNo, ed.DepartmentCode });
 
@@ -70,5 +90,15 @@ public class LisovaContext : DbContext
         modelBuilder.Entity<EmployeeDepartment>()
             .Property(ed => ed.To)
             .HasColumnType("date");
+        
+        modelBuilder.Entity<EmployeeDepartment>()
+            .HasOne(ed => ed.Employee)
+            .WithMany(e => e.EmployeeDepartments)
+            .HasForeignKey(ed => ed.EmployeeNo);
+        
+        modelBuilder.Entity<EmployeeDepartment>()
+            .HasOne(ed => ed.Department)
+            .WithMany(d => d.EmployeeDepartments)
+            .HasForeignKey(ed => ed.DepartmentCode);
     }
 }
