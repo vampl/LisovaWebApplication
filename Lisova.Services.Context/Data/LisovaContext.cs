@@ -29,14 +29,25 @@ public class LisovaContext : DbContext
             .HasKey(d => d.DepartmentCode);
         
         modelBuilder.Entity<Employee>()
-            .HasKey(e => e.EmployeeNo); // Set EmployeeNo as the unique key
+            .HasKey(e => e.EmployeeNo);
 
         modelBuilder.Entity<Employee>()
             .Property(e => e.EmployeeNo)
-            .HasDefaultValueSql("NEXT VALUE FOR EmployeeNoSequence"); // Use a sequence for EmployeeNo
+            .HasDefaultValueSql("NEXT VALUE FOR EmployeeNoSequence");
 
         modelBuilder.Entity<Employee>()
             .Property(e => e.BirthDate)
+            .HasColumnType("date");
+        
+        modelBuilder.Entity<EmployeePosition>()
+            .HasKey(ep => new { ep.EmployeeNo, ep.PositionCode });
+
+        modelBuilder.Entity<EmployeePosition>()
+            .Property(ep => ep.From)
+            .HasColumnType("date");
+
+        modelBuilder.Entity<EmployeePosition>()
+            .Property(ep => ep.To)
             .HasColumnType("date");
     }
 }
