@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Lisova.Services.Context.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace Lisova.Services.Context.Data;
 
@@ -17,6 +18,11 @@ public class LisovaContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        base.OnModelCreating(modelBuilder);
+        modelBuilder.Entity<Position>()
+            .HasKey(p => p.PositionCode);
+
+        modelBuilder.Entity<Position>()
+            .Property(p => p.Salary)
+            .HasPrecision(10, 2);
     }
 }
