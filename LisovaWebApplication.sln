@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lisova.Services", "Lisova.S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lisova.Services.Context", "Lisova.Services.Context\Lisova.Services.Context.csproj", "{91AE77E5-99C4-4060-B3A3-6577CDC0A4F5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lisova.Services.Tests", "Lisova.Services.Tests\Lisova.Services.Tests.csproj", "{D282826B-3066-4516-BAB9-06BF108558DD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{91AE77E5-99C4-4060-B3A3-6577CDC0A4F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91AE77E5-99C4-4060-B3A3-6577CDC0A4F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91AE77E5-99C4-4060-B3A3-6577CDC0A4F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D282826B-3066-4516-BAB9-06BF108558DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D282826B-3066-4516-BAB9-06BF108558DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D282826B-3066-4516-BAB9-06BF108558DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D282826B-3066-4516-BAB9-06BF108558DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
