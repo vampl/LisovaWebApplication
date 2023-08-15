@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace Lisova.Services.Context.Entities;
+﻿namespace Lisova.Services.Context.Entities;
 
 public class Employee
 {
