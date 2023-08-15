@@ -86,13 +86,13 @@ public sealed class EmployeeRepositoryReadTests
     }
     
     [Test]
-    public void GetOrderAsync_OrderIsNotExist_ThrowsRepositoryException()
+    public void GetEmployee_EmployeeIsNotExist_ThrowsArgumentNullException()
     {
         _ = Assert.Throws<ArgumentNullException>( () => _employeeRepository.GetEmployee(employeeNo: 0));
     }
 
     [TestCaseSource(nameof(GetEmployeeData))]
-    public async Task GetOrderAsync_OrderIsExist_ReturnsOrder(Employee expected)
+    public void GetEmployee_EmployeeIsExist_ReturnsEmployee(Employee expected)
     {
         // Act
         var actual = _employeeRepository.GetEmployee(employeeNo: expected.EmployeeNo);
@@ -113,15 +113,6 @@ public sealed class EmployeeRepositoryReadTests
     
     private static IEnumerable<Employee> GetEmployeeData()
     {
-        var cultureInfo = new CultureInfo("en-US")
-        {
-            NumberFormat =
-            {
-                CurrencyDecimalSeparator = ".",
-                CurrencyGroupSeparator = ","
-            }
-        };
-
         var employee = new Employee(10000)
         {
             Fullname = "Walker Gonzales",
