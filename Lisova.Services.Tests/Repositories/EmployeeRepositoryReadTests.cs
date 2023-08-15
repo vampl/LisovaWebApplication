@@ -11,7 +11,8 @@ namespace Lisova.Services.Tests.Repositories;
 [TestFixture]
 public sealed class EmployeeRepositoryReadTests
 {
-    private const string ConnectionString = "Data Source=./LisovaEmployees.db;Mode=Memory;Cache=Shared;";
+    private const string ConnectionString =
+        @"Data Source=D:\Projects\Programming\C#\University Practise\LisovaWebApplication\Lisova.Services.Context\LisovaEmployees.db;Cache=Shared";
     
     private static readonly object[] GetEmployees =
     {
