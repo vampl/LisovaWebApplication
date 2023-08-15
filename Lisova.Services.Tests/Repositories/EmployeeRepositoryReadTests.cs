@@ -29,7 +29,7 @@ public sealed class EmployeeRepositoryReadTests
                 10070, 10071, 10072, 10073, 10074, 10075, 10076, 10077, 10078, 10079,
                 10080, 10081, 10082, 10083, 10084, 10085, 10086, 10087, 10088, 10089,
                 10090, 10091, 10092, 10093, 10094, 10095, 10096, 10097, 10098, 10099,
-                10100, 10101, 10102, 10003, 10104, 10105, 10106, 10107, 10108, 10109,
+                10100, 10101, 10102, 10103, 10104, 10105, 10106, 10107, 10108, 10109,
                 10110, 10111, 10112, 10113, 10114, 10115, 10116, 10117, 10118, 10119,
                 10120, 10121, 10122, 10123, 10124, 10125, 10126, 10127
             } 
@@ -123,7 +123,7 @@ public sealed class EmployeeRepositoryReadTests
             ContactPhone = "(8213) 25721"
         };
         
-        employee.EmployeePositions.Add(new EmployeePosition(10001, new Position("YMB281_22")
+        employee.EmployeePositions.Add(new EmployeePosition(10000, new Position("YMB281_22")
         {
             PositionName = "Technical",
             Description = "malesuada augue ut lacus. Nulla tincidunt, neque vitae semper egestas,",
@@ -137,7 +137,7 @@ public sealed class EmployeeRepositoryReadTests
             To = DateTime.Parse("2008-08-24")
         });
         
-        employee.EmployeeDepartments.Add(new EmployeeDepartment(10001, new Department("EDH228")
+        employee.EmployeeDepartments.Add(new EmployeeDepartment(10000, new Department("EDH228")
         {
             DepartmentName = "Accounting",
             Description = "sit amet diam eu dolor egestas",
