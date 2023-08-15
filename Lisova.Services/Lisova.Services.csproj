@@ -6,9 +6,9 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+
     <ItemGroup>
-      <Folder Include="Models\" />
-      <Folder Include="Repositories\" />
+      <ProjectReference Include="..\Lisova.Services.Context\Lisova.Services.Context.csproj" />
     </ItemGroup>
 
 </Project>

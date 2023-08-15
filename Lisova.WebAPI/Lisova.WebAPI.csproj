@@ -17,6 +17,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Lisova.Services.Context\Lisova.Services.Context.csproj" />
+      <ProjectReference Include="..\Lisova.Services\Lisova.Services.csproj" />
     </ItemGroup>
 
 </Project>
