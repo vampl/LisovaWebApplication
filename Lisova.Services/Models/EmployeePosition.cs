@@ -12,7 +12,7 @@ public class EmployeePosition
 
     public Position Position { get; private set; }
 
-    public DateTime From { get; init; } = default!;
+    public DateTime From { get; init; }
 
-    public DateTime To { get; init; } = default!;
+    public DateTime To { get; init; }
 }

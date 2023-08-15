@@ -11,7 +11,7 @@ public class Position
 
     public string PositionName { get; init; } = default!;
 
-    public string? Description { get; init; } = default!;
+    public string? Description { get; init; }
 
-    public decimal Salary { get; init; } = default!;
+    public decimal Salary { get; init; }
 }

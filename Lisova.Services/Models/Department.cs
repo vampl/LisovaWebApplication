@@ -11,5 +11,5 @@ public class Department
 
     public string DepartmentName { get; init; } = default!;
 
-    public string? Description { get; init; } = default!;
+    public string? Description { get; init; }
 }

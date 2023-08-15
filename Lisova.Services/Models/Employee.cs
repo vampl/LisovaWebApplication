@@ -9,15 +9,15 @@ public class Employee
     
     public long EmployeeNo { get; private set; }
     
-    public string Fullname { get; set; } = null!;
+    public string Fullname { get; init; } = null!;
 
-    public DateTime BirthDate { get; set; }
+    public DateTime BirthDate { get; init; }
 
-    public string? Location { get; set; }
+    public string? Location { get; init; }
 
-    public string HomeAddress { get; set; } = null!;
+    public string HomeAddress { get; init; } = null!;
 
-    public string ContactPhone { get; set; } = null!;
+    public string ContactPhone { get; init; } = null!;
 
     public IList<EmployeePosition> EmployeePositions { get; } = new List<EmployeePosition>();
 
