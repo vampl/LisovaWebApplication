@@ -5,7 +5,7 @@ namespace Lisova.Services.Context.Data;
 
 public class LisovaContext : DbContext
 {
-    private const string ConnectionString = "Data Source=./LisovaEmployees.db";
+    private const string ConnectionString = "Data Source=./LisovaEmployees.db;Mode=Memory;Cache=Shared;";
     
     public LisovaContext() { }
 
