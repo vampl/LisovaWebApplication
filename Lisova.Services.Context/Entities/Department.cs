@@ -8,5 +8,5 @@ public class Department
 
     public string? Description { get; set; }
 
-    public ICollection<EmployeeDepartment> EmployeeDepartments { get; set; } = new List<EmployeeDepartment>();
+    public IList<EmployeeDepartment> EmployeeDepartments { get; set; } = new List<EmployeeDepartment>();
 }

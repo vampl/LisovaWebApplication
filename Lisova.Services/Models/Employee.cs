@@ -19,7 +19,7 @@ public class Employee
 
     public string ContactPhone { get; set; } = null!;
 
-    public ICollection<EmployeePosition> EmployeePositions { get; } = new List<EmployeePosition>();
+    public IList<EmployeePosition> EmployeePositions { get; } = new List<EmployeePosition>();
 
-    public ICollection<EmployeeDepartment> EmployeeDepartments { get; } = new List<EmployeeDepartment>();
+    public IList<EmployeeDepartment> EmployeeDepartments { get; } = new List<EmployeeDepartment>();
 }

@@ -12,12 +12,12 @@ public class EmployeeRepository : IEmployeeRepository
         _lisovaContext = lisovaContext;
     }
     
-    public ICollection<Employee> GetEmployees()
+    public IList<Employee> GetEmployees()
     {
         throw new NotImplementedException();
     }
 
-    public ICollection<Employee> GetEmployeesRange(int skip, int count)
+    public IList<Employee> GetEmployeesRange(int skip, int count)
     {
         throw new NotImplementedException();
     }

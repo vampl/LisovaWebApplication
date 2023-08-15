@@ -16,7 +16,7 @@ public class Employee
     
     public string ContactPhone { get; set; } = null!;
 
-    public ICollection<EmployeePosition> EmployeePositions { get; set; } = new List<EmployeePosition>();
+    public IList<EmployeePosition> EmployeePositions { get; set; } = new List<EmployeePosition>();
     
-    public ICollection<EmployeeDepartment> EmployeeDepartments { get; set; } = new List<EmployeeDepartment>();
+    public IList<EmployeeDepartment> EmployeeDepartments { get; set; } = new List<EmployeeDepartment>();
 }

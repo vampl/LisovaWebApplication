@@ -10,5 +10,5 @@ public class Position
 
     public decimal Salary { get; set; }
 
-    public ICollection<EmployeePosition> EmployeePositions { get; set; } = new List<EmployeePosition>();
+    public IList<EmployeePosition> EmployeePositions { get; set; } = new List<EmployeePosition>();
 }
