@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Lisova.WebAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class EmployeeController : ControllerBase
     {
@@ -33,9 +33,9 @@ namespace Lisova.WebAPI.Controllers
         public IEnumerable<FullEmployee> GetFullRange(int skip, int count)
         {
             var employees = _employeeRepository.GetRange(skip, count);
-            var fullEmployees = employees.Select(e => _employeeMapper.MapToFullEmployee(e));
+            var fullEmployeesRange = employees.Select(e => _employeeMapper.MapToFullEmployee(e));
 
-            return fullEmployees;
+            return fullEmployeesRange;
         }
 
 
@@ -51,33 +51,33 @@ namespace Lisova.WebAPI.Controllers
         
         // GET: api/Employee/
         [HttpGet(Name = "GetAbbreviatedAll")]
-        public IEnumerable<FullEmployee> GetAbbreviatedFull()
+        public IEnumerable<AbbreviatedEmployee> GetAbbreviatedFull()
         {
             var employees = _employeeRepository.GetAll();
-            var fullEmployees = employees.Select(e => _employeeMapper.MapToFullEmployee(e));
-
-            return fullEmployees;
+            var abbreviatedEmployees = employees.Select(e => _employeeMapper.MapToAbbreviatedEmployee(e));
+        
+            return abbreviatedEmployees;
         }
         
         // GET: api/Employee/5/10
         [HttpGet("{skip:int}/{count:int}", Name = "GetAbbreviatedRange")]
-        public IEnumerable<FullEmployee> GetAbbreviatedRange(int skip, int count)
+        public IEnumerable<AbbreviatedEmployee> GetAbbreviatedRange(int skip, int count)
         {
             var employees = _employeeRepository.GetRange(skip, count);
-            var fullEmployees = employees.Select(e => _employeeMapper.MapToFullEmployee(e));
-
-            return fullEmployees;
+            var abbreviatedEmployeeRange = employees.Select(e => _employeeMapper.MapToAbbreviatedEmployee(e));
+        
+            return abbreviatedEmployeeRange;
         }
-
-
+        
+        
         // GET: api/Employee/5
         [HttpGet("{employeeNo:long}", Name = "GetAbbreviatedBy")]
-        public FullEmployee GetAbbreviatedBy(int employeeNo)
+        public AbbreviatedEmployee GetAbbreviatedBy(int employeeNo)
         {
             var employee = _employeeRepository.GetBy(employeeNo);
-            var fullEmployee = _employeeMapper.MapToFullEmployee(employee);
-
-            return fullEmployee;
+            var abbreviatedEmployee = _employeeMapper.MapToAbbreviatedEmployee(employee);
+        
+            return abbreviatedEmployee;
         }
     }
 }
