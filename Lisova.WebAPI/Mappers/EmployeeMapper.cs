@@ -5,7 +5,7 @@ namespace Lisova.WebAPI.Mappers;
 
 public class EmployeeMapper : IEmployeeMapper
 {
-    public FullEmployee MapToFullEmployeeModel(Employee employee)
+    public FullEmployee MapToFullEmployee(Employee employee)
     {
         return new FullEmployee
         {
@@ -14,11 +14,43 @@ public class EmployeeMapper : IEmployeeMapper
             BirthDate = employee.BirthDate.Date,
             Location = employee.Location,
             HomeAddress = employee.HomeAddress,
-            ContactPhone = employee.ContactPhone
+            ContactPhone = employee.ContactPhone,
+            EmployeePositions = MapToFullEmployeePositions(employee.EmployeePositions),
+            EmployeeDepartments = MapToFullEmployeeDepartments(employee.EmployeeDepartments)
         };
     }
 
-    public FullEmployeePosition MapToFullEmployeePositionModel(EmployeePosition employeePosition)
+    public IList<FullEmployeePosition> MapToFullEmployeePositions(IList<EmployeePosition> employeePositions)
+    {
+        return employeePositions.Select(MapToFullEmployeePosition).ToList();
+    }
+
+    public IList<FullEmployeeDepartment> MapToFullEmployeeDepartments(IList<EmployeeDepartment> employeeDepartments)
+    {
+        return employeeDepartments.Select(MapToFullEmployeeDepartment).ToList();
+    }
+
+    public AbbreviatedEmployee MapToAbbreviatedEmployee(Employee employee)
+    {
+        return new AbbreviatedEmployee
+        {
+            EmployeeNo = employee.EmployeeNo,
+            EmployeePositions = MapToAbbreviatedEmployeePositions(employee.EmployeePositions),
+            EmployeeDepartments = MapToAbbreviatedEmployeeDepartments(employee.EmployeeDepartments)
+        };
+    }
+
+    public IList<AbbreviatedEmployeePosition> MapToAbbreviatedEmployeePositions(IList<EmployeePosition> employeePositions)
+    {
+        return employeePositions.Select(MapToAbbreviatedEmployeePosition).ToList();
+    }
+
+    public IList<AbbreviatedEmployeeDepartment> MapToAbbreviatedEmployeeDepartments(IList<EmployeeDepartment> employeeDepartments)
+    {
+        return employeeDepartments.Select(MapToAbbreviatedEmployeeDepartment).ToList();
+    }
+    
+    private static FullEmployeePosition MapToFullEmployeePosition(EmployeePosition employeePosition)
     {
         return new FullEmployeePosition
         {
@@ -31,7 +63,7 @@ public class EmployeeMapper : IEmployeeMapper
         };
     }
 
-    public FullEmployeeDepartment MapToFullEmployeeDepartmentModel(EmployeeDepartment employeeDepartment)
+    private static FullEmployeeDepartment MapToFullEmployeeDepartment(EmployeeDepartment employeeDepartment)
     {
         return new FullEmployeeDepartment
         {
@@ -42,19 +74,22 @@ public class EmployeeMapper : IEmployeeMapper
             To = employeeDepartment.To.Date
         };
     }
-
-    public AbbreviatedEmployee MapToAbbreviatedEmployeeModel(Employee employee)
+    
+    private static AbbreviatedEmployeePosition MapToAbbreviatedEmployeePosition(EmployeePosition employeePosition)
     {
-        throw new NotImplementedException();
+        return new AbbreviatedEmployeePosition
+        {
+            EmployeeNo = employeePosition.EmployeeNo,
+            PositionCode = employeePosition.Position.PositionCode,
+        };
     }
 
-    public AbbreviatedEmployeePosition MapToAbbreviatedEmployeePositionModel(EmployeePosition employeePosition)
+    private static AbbreviatedEmployeeDepartment MapToAbbreviatedEmployeeDepartment(EmployeeDepartment employeeDepartment)
     {
-        throw new NotImplementedException();
-    }
-
-    public AbbreviatedEmployeeDepartment MapToAbbreviatedEmployeeDepartmentModel(EmployeeDepartment employeeDepartment)
-    {
-        throw new NotImplementedException();
+        return new AbbreviatedEmployeeDepartment
+        {
+            EmployeeNo = employeeDepartment.EmployeeNo,
+            DepartmentCode = employeeDepartment.Department.DepartmentCode,
+        };
     }
 }
