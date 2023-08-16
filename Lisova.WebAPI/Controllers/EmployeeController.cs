@@ -1,4 +1,5 @@
 using Lisova.Services.Repositories;
+using Lisova.WebAPI.Mappers;
 using Lisova.WebAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,10 +10,12 @@ namespace Lisova.WebAPI.Controllers
     public class EmployeeController : ControllerBase
     {
         private readonly IEmployeeRepository _employeeRepository;
+        private readonly IEmployeeMapper _employeeMapper;
         
-        public EmployeeController(IEmployeeRepository employeeRepository)
+        public EmployeeController(IEmployeeRepository employeeRepository, IEmployeeMapper employeeMapper)
         {
             _employeeRepository = employeeRepository;
+            _employeeMapper = employeeMapper;
         }
         
         // GET: api/Employee/
