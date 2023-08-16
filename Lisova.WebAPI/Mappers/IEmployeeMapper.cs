@@ -11,9 +11,9 @@ public interface IEmployeeMapper
 
     public FullEmployeeDepartment MapToFullEmployeeDepartmentModel(EmployeeDepartment employeeDepartment);
     
-    public FullEmployee MapToAbbreviatedEmployeeModel(Employee employee);
+    public AbbreviatedEmployee MapToAbbreviatedEmployeeModel(Employee employee);
 
-    public FullEmployeePosition MapToAbbreviatedEmployeePositionModel(EmployeePosition employeePosition);
+    public AbbreviatedEmployeePosition MapToAbbreviatedEmployeePositionModel(EmployeePosition employeePosition);
 
-    public FullEmployeeDepartment MapToAbbreviatedEmployeeDepartmentModel(EmployeeDepartment employeeDepartment);
+    public AbbreviatedEmployeeDepartment MapToAbbreviatedEmployeeDepartmentModel(EmployeeDepartment employeeDepartment);
 }
