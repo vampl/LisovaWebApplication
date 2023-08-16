@@ -6,5 +6,5 @@ public class AbbreviatedEmployee
 
     public IList<AbbreviatedEmployeePosition> EmployeePositions { get; set; } = default!;
 
-    public IList<FullEmployeePosition> EmployeeDepartments { get; set; } = default!;
+    public IList<AbbreviatedEmployeeDepartment> EmployeeDepartments { get; set; } = default!;
 }
