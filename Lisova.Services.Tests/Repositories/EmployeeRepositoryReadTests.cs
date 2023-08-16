@@ -52,7 +52,7 @@ public sealed class EmployeeRepositoryReadTests
     public void GetEmployees_ArgumentsAreValid_ReturnsEmployeesList(long[] employeeNo)
     {
         // Act
-        var employees = _employeeRepository.GetEmployees();
+        var employees = _employeeRepository.GetAll();
 
         // Assert
         Assert.That(employees, Has.Count.EqualTo(employeeNo.Length));
@@ -68,14 +68,14 @@ public sealed class EmployeeRepositoryReadTests
     [TestCase(0, 0)]
     public void GetEmployeesRange_ArgumentsAreOutOfRange_ThrowsArgumentOutOfRangeException(int skip, int count)
     {
-        _ = Assert.Throws<ArgumentOutOfRangeException>( () => _employeeRepository.GetEmployeesRange(skip: skip, count: count));
+        _ = Assert.Throws<ArgumentOutOfRangeException>( () => _employeeRepository.GetRange(skip: skip, count: count));
     }
     
     [TestCaseSource(nameof(GetEmployeesRange))]
     public void GetEmployeesRange_ArgumentsAreValid_ReturnsEmployeesList(int skip, int count, long[] employeeNo)
     {
         // Act
-        var employees = _employeeRepository.GetEmployeesRange(skip: skip, count: count);
+        var employees = _employeeRepository.GetRange(skip: skip, count: count);
 
         // Assert
         Assert.That(employees, Has.Count.EqualTo(employeeNo.Length));
@@ -89,14 +89,14 @@ public sealed class EmployeeRepositoryReadTests
     [Test]
     public void GetEmployee_EmployeeIsNotExist_ThrowsArgumentNullException()
     {
-        _ = Assert.Throws<ArgumentNullException>( () => _employeeRepository.GetEmployee(employeeNo: 0));
+        _ = Assert.Throws<ArgumentNullException>( () => _employeeRepository.GetBy(employeeNo: 0));
     }
 
     [TestCaseSource(nameof(GetEmployeeData))]
     public void GetEmployee_EmployeeIsExist_ReturnsEmployee(Employee expected)
     {
         // Act
-        var actual = _employeeRepository.GetEmployee(employeeNo: expected.EmployeeNo);
+        var actual = _employeeRepository.GetBy(employeeNo: expected.EmployeeNo);
 
         // Assert
         Assert.That(actual, Is.Not.Null);

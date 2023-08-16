@@ -21,12 +21,12 @@ public class EmployeeRepository : IEmployeeRepository
         _lisovaContext = lisovaContext;
     }
     
-    public IList<RepositoryEmployee> GetEmployees()
+    public IList<RepositoryEmployee> GetAll()
     {
         return GetEmployeesData();
     }
 
-    public IList<RepositoryEmployee> GetEmployeesRange(int skip, int count)
+    public IList<RepositoryEmployee> GetRange(int skip, int count)
     {
         if (skip < 0)
         {
@@ -41,7 +41,7 @@ public class EmployeeRepository : IEmployeeRepository
         return GetEmployeesData().Skip(skip).Take(count).ToList();
     }
     
-    public RepositoryEmployee GetEmployee(long employeeNo)
+    public RepositoryEmployee GetBy(long employeeNo)
     {
         if (_lisovaContext.Employees.FirstOrDefault(e => e.EmployeeNo == employeeNo) is null)
         {
