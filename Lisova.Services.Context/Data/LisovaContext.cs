@@ -8,8 +8,15 @@ public class LisovaContext : DbContext
     private const string ConnectionString =
         @"Data Source=D:\Projects\Programming\C#\University Practise\LisovaWebApplication\Lisova.Services.Context\LisovaEmployees.db;Cache=Shared";
     
+    /// <summary>
+    /// Creates an instance of context.
+    /// </summary>
     public LisovaContext() { }
 
+    /// <summary>
+    /// Creates an instance of context from options.
+    /// </summary>
+    /// <param name="contextOptions">The context option to assign to context instance.</param>
     public LisovaContext(DbContextOptions<LisovaContext> contextOptions) : base(contextOptions) { }
 
     public DbSet<Employee> Employees { get; set; } = default!;
@@ -22,11 +29,19 @@ public class LisovaContext : DbContext
     
     public DbSet<Department> Departments { get; set; } = default!;
     
+    /// <summary>
+    /// Override method to setup configuration for context.
+    /// </summary>
+    /// <param name="optionsBuilder">The context option builder to configure instance from.</param>
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.UseSqlite(ConnectionString);
     }
     
+    /// <summary>
+    /// Override method to setup entities configuration while creating. 
+    /// </summary>
+    /// <param name="modelBuilder"></param>
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         ConfigureEmployeeEntity(modelBuilder);
@@ -38,7 +53,11 @@ public class LisovaContext : DbContext
         ConfigureDepartmentEntity(modelBuilder);
     }
 
-    private void ConfigureEmployeeEntity(ModelBuilder modelBuilder)
+    /// <summary>
+    /// Method to configure Employee entity.
+    /// </summary>
+    /// <param name="modelBuilder">The builder instance to setup entity configuration.</param>
+    private static void ConfigureEmployeeEntity(ModelBuilder modelBuilder)
     {
         // Configure key value of Employee.
         modelBuilder.Entity<Employee>()
@@ -68,7 +87,11 @@ public class LisovaContext : DbContext
             .OnDelete(DeleteBehavior.Cascade);
     }
 
-    private void ConfigureEmployeePositionEntity(ModelBuilder modelBuilder)
+    /// <summary>
+    /// Method to configure Employee Position entity.
+    /// </summary>
+    /// <param name="modelBuilder">The builder instance to setup entity configuration.</param>
+    private static void ConfigureEmployeePositionEntity(ModelBuilder modelBuilder)
     {
         // Configure key value of EmployeePosition.
         modelBuilder.Entity<EmployeePosition>()
@@ -96,7 +119,11 @@ public class LisovaContext : DbContext
             .HasForeignKey(ep => ep.PositionCode);
     }
 
-    private void ConfigureEmployeeDepartmentEntity(ModelBuilder modelBuilder)
+    /// <summary>
+    /// Method to configure Employee Department entity.
+    /// </summary>
+    /// <param name="modelBuilder">The builder instance to setup entity configuration.</param>
+    private static void ConfigureEmployeeDepartmentEntity(ModelBuilder modelBuilder)
     {
         // Configure key value of EmployeeDepartment.
         modelBuilder.Entity<EmployeeDepartment>()
@@ -124,7 +151,11 @@ public class LisovaContext : DbContext
             .HasForeignKey(ed => ed.DepartmentCode);
     }
 
-    private void ConfigurePositionEntity(ModelBuilder modelBuilder)
+    /// <summary>
+    /// Method to configure Position entity.
+    /// </summary>
+    /// <param name="modelBuilder">The builder instance to setup entity configuration.</param>
+    private static void ConfigurePositionEntity(ModelBuilder modelBuilder)
     {
         // Configure key value of EmployeeDepartment.
         modelBuilder.Entity<Position>()
@@ -136,7 +167,11 @@ public class LisovaContext : DbContext
             .HasPrecision(10, 2);
     }
 
-    private void ConfigureDepartmentEntity(ModelBuilder modelBuilder)
+    /// <summary>
+    /// Method to configure Department entity.
+    /// </summary>
+    /// <param name="modelBuilder">The builder instance to setup entity configuration.</param>
+    private static void ConfigureDepartmentEntity(ModelBuilder modelBuilder)
     {
         // Configure key value of EmployeeDepartment.
         modelBuilder.Entity<Department>()
