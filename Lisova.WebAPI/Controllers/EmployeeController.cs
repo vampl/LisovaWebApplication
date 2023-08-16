@@ -19,23 +19,23 @@ namespace Lisova.WebAPI.Controllers
         }
         
         // GET: api/Employee/
-        [HttpGet]
-        public IList<FullEmployee> Get()
+        [HttpGet(Name = "GetAllFull")]
+        public IList<FullEmployee> GetAllFull()
         {
             return new List<FullEmployee>();
         }
         
         // GET: api/Employee/5/10
-        [HttpGet("{skip:int}/{count:int}", Name = "Get")]
-        public IList<FullEmployee> Get(int skip, int count)
+        [HttpGet("{skip:int}/{count:int}", Name = "GetFullRange")]
+        public IList<FullEmployee> GetFullRange(int skip, int count)
         {
             return new List<FullEmployee>();
         }
 
 
         // GET: api/Employee/5
-        [HttpGet("{id}", Name = "Get")]
-        public FullEmployee Get(int id)
+        [HttpGet("{employeeNo:long}", Name = "GetByFull")]
+        public FullEmployee GetBy(int employeeNo)
         {
             return new FullEmployee();
         }
