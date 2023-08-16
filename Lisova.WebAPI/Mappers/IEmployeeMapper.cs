@@ -5,15 +5,15 @@ namespace Lisova.WebAPI.Mappers;
 
 public interface IEmployeeMapper
 {
-    public FullEmployee MapToFullEmployeeModel(Employee employee);
+    public FullEmployee MapToFullEmployee(Employee employee);
 
-    public FullEmployeePosition MapToFullEmployeePositionModel(EmployeePosition employeePosition);
-
-    public FullEmployeeDepartment MapToFullEmployeeDepartmentModel(EmployeeDepartment employeeDepartment);
+    public IList<FullEmployeePosition> MapToFullEmployeePositions(IList<EmployeePosition> employeePositions);
     
-    public AbbreviatedEmployee MapToAbbreviatedEmployeeModel(Employee employee);
+    public IList<FullEmployeeDepartment> MapToFullEmployeeDepartments(IList<EmployeeDepartment> employeeDepartments);
+    
+    public AbbreviatedEmployee MapToAbbreviatedEmployee(Employee employee);
 
-    public AbbreviatedEmployeePosition MapToAbbreviatedEmployeePositionModel(EmployeePosition employeePosition);
+    public IList<AbbreviatedEmployeePosition> MapToAbbreviatedEmployeePositions(IList<EmployeePosition> employeePositions);
 
-    public AbbreviatedEmployeeDepartment MapToAbbreviatedEmployeeDepartmentModel(EmployeeDepartment employeeDepartment);
+    public IList<AbbreviatedEmployeeDepartment> MapToAbbreviatedEmployeeDepartments(IList<EmployeeDepartment> employeeDepartments);
 }
