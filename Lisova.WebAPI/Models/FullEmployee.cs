@@ -16,5 +16,5 @@ public class FullEmployee
 
     public IList<FullEmployeePosition> EmployeePositions { get; set; } = default!;
 
-    public IList<FullEmployeePosition> EmployeeDepartments { get; set; } = default!;
+    public IList<FullEmployeeDepartment> EmployeeDepartments { get; set; } = default!;
 }
