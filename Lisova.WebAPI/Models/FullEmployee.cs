@@ -6,13 +6,13 @@ public class FullEmployee
 
     public string Fullname { get; set; } = default!;
 
-    public DateTime BirthDate { get; init; }
+    public DateTime BirthDate { get; set; }
 
-    public string? Location { get; init; }
+    public string? Location { get; set; }
 
-    public string HomeAddress { get; init; } = default!;
+    public string HomeAddress { get; set; } = default!;
 
-    public string ContactPhone { get; init; } = default!;
+    public string ContactPhone { get; set; } = default!;
 
     public IList<FullEmployeePosition> EmployeePositions { get; set; } = default!;
 
