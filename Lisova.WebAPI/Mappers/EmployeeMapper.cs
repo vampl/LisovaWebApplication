@@ -7,30 +7,53 @@ public class EmployeeMapper : IEmployeeMapper
 {
     public FullEmployee MapToFullEmployeeModel(Employee employee)
     {
-        throw new NotImplementedException();
+        return new FullEmployee
+        {
+            EmployeeNo = employee.EmployeeNo,
+            Fullname = employee.Fullname,
+            BirthDate = employee.BirthDate.Date,
+            Location = employee.Location,
+            HomeAddress = employee.HomeAddress,
+            ContactPhone = employee.ContactPhone
+        };
     }
 
     public FullEmployeePosition MapToFullEmployeePositionModel(EmployeePosition employeePosition)
     {
-        throw new NotImplementedException();
+        return new FullEmployeePosition
+        {
+            EmployeeNo = employeePosition.EmployeeNo,
+            PositionCode = employeePosition.Position.PositionCode,
+            PositionName = employeePosition.Position.PositionName,
+            Salary = employeePosition.Position.Salary,
+            From = employeePosition.From.Date,
+            To = employeePosition.To.Date
+        };
     }
 
     public FullEmployeeDepartment MapToFullEmployeeDepartmentModel(EmployeeDepartment employeeDepartment)
     {
-        throw new NotImplementedException();
+        return new FullEmployeeDepartment
+        {
+            EmployeeNo = employeeDepartment.EmployeeNo,
+            DepartmentCode = employeeDepartment.Department.DepartmentCode,
+            DepartmentName = employeeDepartment.Department.DepartmentName,
+            From = employeeDepartment.From.Date,
+            To = employeeDepartment.To.Date
+        };
     }
 
-    public FullEmployee MapToAbbreviatedEmployeeModel(Employee employee)
+    public AbbreviatedEmployee MapToAbbreviatedEmployeeModel(Employee employee)
     {
         throw new NotImplementedException();
     }
 
-    public FullEmployeePosition MapToAbbreviatedEmployeePositionModel(EmployeePosition employeePosition)
+    public AbbreviatedEmployeePosition MapToAbbreviatedEmployeePositionModel(EmployeePosition employeePosition)
     {
         throw new NotImplementedException();
     }
 
-    public FullEmployeeDepartment MapToAbbreviatedEmployeeDepartmentModel(EmployeeDepartment employeeDepartment)
+    public AbbreviatedEmployeeDepartment MapToAbbreviatedEmployeeDepartmentModel(EmployeeDepartment employeeDepartment)
     {
         throw new NotImplementedException();
     }
